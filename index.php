@@ -2,7 +2,6 @@
 
 <?php 
 
-    $msg = '';
     if(isset($_POST['user_type']) && $_POST['user_type'] === 'librarian') {
         if(isset($_POST['login'])) {
 
@@ -12,8 +11,16 @@
             if($login->librarian_login($username,$password)) {
                 header("location: dashboard.php");
             }
-            } else {
-            $msg = "You are not a librarian";
+        }
+    } elseif(isset($_POST['user_type']) && $_POST['user_type'] === 'user') {
+
+           if(isset($_POST['login'])) {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+
+            if($login->student_login($username,$password)) {
+                header("location: dashboard.php");
+            }
         }
     } 
 ?>
