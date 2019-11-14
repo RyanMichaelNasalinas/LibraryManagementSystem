@@ -12,6 +12,8 @@
                 header("location: dashboard.php");
             } elseif(Validation::val_empty($username) && Validation::val_empty($password)) {
                 $validation->error_msg = 'Username and Password should not be empty';
+            } else {
+                $validation->error_msg = "Username or Password is incorrect";
             }
         }     
     } elseif(isset($_POST['user_type']) && $_POST['user_type'] === 'user') {
@@ -24,13 +26,14 @@
                 header("location: dashboard.php");
             } elseif(Validation::val_empty($username) && Validation::val_empty($password)) {
                 $validation->error_msg = 'Username and Password should not be empty';
+            } else {
+                $validation->error_msg = "Username or Password is incorrect";
             }
         }
     } elseif(isset($_POST['user_type']) && empty($_POST['user_type'])) {
         $validation->error_msg = 'You must select the user type';
     } 
-    
-    
+      
 ?>
 
 <div class="container" id="login-container">
@@ -71,10 +74,10 @@
                     </div>
                     <!-- Error Message -->
                     <?php if(isset($validation->error_msg)): ?>
-                    <div class="container">
+                    <div class="container text-center">
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                                <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
                             <?php echo $validation->error_msg; ?>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -82,8 +85,7 @@
                         </div>
                             </div>
                         </div>
-                    </div>
-                        
+                    </div>   
                     <?php endif; ?>
             </div>
         </div>
