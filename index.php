@@ -6,9 +6,8 @@
         if(isset($_POST['login'])) {
             $username = $validation->val_trim($_POST['username']);
             $password = $validation->val_trim($_POST['password']);
-            $login_lib = $login->librarian_login($username,$password);
 
-            if ($login_lib) {
+            if ($login_lib = $login->librarian_login($username,$password)) {
                 header("location: dashboard.php");
             } elseif(Validation::val_empty($username) && Validation::val_empty($password)) {
                 $validation->error_msg = 'Username and Password should not be empty';
@@ -32,8 +31,7 @@
         }
     } elseif(isset($_POST['user_type']) && empty($_POST['user_type'])) {
         $validation->error_msg = 'You must select the user type';
-    } 
-      
+    }    
 ?>
 
 <div class="container" id="login-container">
@@ -47,11 +45,11 @@
                         <form action="" method="POST">    
                             <div class="form-group">
                                 <label>Username</label>
-                                <input type="text" name="username" class="form-control" placeholder="Username">
+                                <input type="text" name="username" class="form-control" placeholder="Username" value="<?= isset($_POST['username']) ? $_POST['username'] : '' ?>">
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="password" name="password" class="form-control" placeholder="Password">
+                                <input type="password" name="password" class="form-control" placeholder="Password" value="<?= isset($_POST['password']) ? $_POST['password'] : '' ?>">
                             </div>
                             <div class="card">
                                 <div class="card-body">
