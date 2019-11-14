@@ -31,7 +31,6 @@ class Database {
     public function escape($string) {
         return $this->connection->escape_string($string);
     }
-
 }
 
 ?>

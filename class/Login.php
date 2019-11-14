@@ -1,7 +1,7 @@
 <?php 
 
 class Login extends Database {
-    
+
     public function librarian_login($username,$password) {
         $stmt = $this->connection->prepare("SELECT * FROM librarian WHERE username = ?");
         $stmt->bind_param("s",$username);
@@ -17,6 +17,7 @@ class Login extends Database {
 
             if(password_verify($password, $row['password'])) {
                 $_SESSION['id'] = $row['id'];
+                $_SESSION['user_type'] = $row['user_type'];
                 $_SESSION['username'] = $row['username'];
                 return true;
             } else {
@@ -40,6 +41,7 @@ class Login extends Database {
 
             if(password_verify($password, $row['password'])) {
                 $_SESSION['id'] = $row['id'];
+                $_SESSION['user_type'] = $row['user_type'];
                 $_SESSION['username'] = $row['username'];
                 return true;
             } else {
@@ -48,10 +50,10 @@ class Login extends Database {
         }
     }
 
-
+    public function logout() {
+        session_destroy();
+        header("Location: index.php");
+    }
 }
-
-
-
 
 ?>
