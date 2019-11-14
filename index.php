@@ -1,8 +1,8 @@
-<?php include "includes/header.php"; ?>
-
 <?php 
+    include "includes/header.php";
+
     if(isset($_POST['user_type']) && $_POST['user_type'] === 'librarian') {
-        
+
         if(isset($_POST['login'])) {
             $username = $validation->val_trim($_POST['username']);
             $password = $validation->val_trim($_POST['password']);
@@ -11,9 +11,13 @@
                 header("location: dashboard.php");
             } elseif(Validation::val_empty($username) && Validation::val_empty($password)) {
                 $validation->error_msg = 'Username and Password should not be empty';
+            } elseif(Validation::val_empty($username)) {
+                $validation->error_msg = 'Username should not be empty';
+            } elseif(Validation::val_empty($password)){
+                $validation->error_msg = 'Password should not be empty';
             } else {
                 $validation->error_msg = "Username or Password is incorrect";
-            }
+            }   
         }     
     } elseif(isset($_POST['user_type']) && $_POST['user_type'] === 'user') {
 
@@ -25,6 +29,10 @@
                 header("location: dashboard.php");
             } elseif(Validation::val_empty($username) && Validation::val_empty($password)) {
                 $validation->error_msg = 'Username and Password should not be empty';
+            } elseif(Validation::val_empty($username)) {
+                $validation->error_msg = 'Username should not be empty';
+            } elseif(Validation::val_empty($password)){
+                $validation->error_msg = 'Password should not be empty';
             } else {
                 $validation->error_msg = "Username or Password is incorrect";
             }
@@ -57,13 +65,17 @@
                                         <label>Login As:</label>
                                         <select name="user_type" class="form-control">
                                             <option value="">Select Usertype</option>
-                                            <option value="user">User</option>
-                                            <option value="librarian">Librarian</option>
+                                            <?php if(isset($_POST['user_type']) == 'user' || isset($_POST['user_type']) == 'librarian'): ?>
+                                                <option value="user" <?= $_POST['user_type'] == 'user' ? 'selected' : '' ?>>User</option>
+                                                <option value="librarian" <?= $_POST['user_type'] == 'librarian' ? 'selected' : '' ?>>Librarian</option>
+                                            <?php else: ?>    
+                                                <option value="user">User</option>
+                                                <option value="librarian">librarian</option>
+                                            <?php endif; ?>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-
         
                             <div class="form-group text-center mt-2">
                                 <input type="submit" value="Login" name="login" class="btn-secondary btn-lg">
@@ -89,6 +101,5 @@
         </div>
     </div>
 </div>
-
 
 <?php include "includes/footer.php"; ?>
