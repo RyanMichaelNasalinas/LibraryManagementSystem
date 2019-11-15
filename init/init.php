@@ -10,5 +10,6 @@ session_start();
 
 $validation = new Validation;
 $login = new Login;
+$database = new Database;
 
 ?>

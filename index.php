@@ -4,10 +4,11 @@
     if(isset($_POST['user_type']) && $_POST['user_type'] === 'librarian') {
 
         if(isset($_POST['login'])) {
-            $username = $validation->val_trim($_POST['username']);
-            $password = $validation->val_trim($_POST['password']);
+            $username = $validation->val_trim($database->escape($_POST['username']));
+            $password = $validation->val_trim($database->escape($_POST['password']));
+            $login_lib = $login->librarian_login($username,$password);
 
-            if ($login_lib = $login->librarian_login($username,$password)) {
+            if ($login_lib) {
                 header("location: dashboard.php");
             } elseif(Validation::val_empty($username) && Validation::val_empty($password)) {
                 $validation->error_msg = 'Username and Password should not be empty';
