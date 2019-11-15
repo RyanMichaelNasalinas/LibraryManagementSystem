@@ -12,7 +12,7 @@
 
         //PDO Connection
         public function __construct() {
-        $this->database();
+            $this->database();
         }
 
         public function database() {

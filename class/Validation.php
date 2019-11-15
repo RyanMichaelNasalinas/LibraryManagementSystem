@@ -12,8 +12,6 @@ class Validation extends Database {
         return empty($field);
     }
 
-      
-
     public static function val_session($session) {
         if($session) {
             return true;
