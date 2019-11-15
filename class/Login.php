@@ -17,7 +17,7 @@ class Login extends Database {
 
             if(password_verify($password, $row['password'])) {
                 $_SESSION['id'] = $row['id'];
-                $_SESSION['user_type'] = $row['user_type'];
+                $_SESSION['user_level'] = $row['user_level'];
                 $_SESSION['username'] = $row['username'];
                 return true;
             } else {
@@ -41,7 +41,7 @@ class Login extends Database {
 
             if(password_verify($password, $row['password'])) {
                 $_SESSION['id'] = $row['id'];
-                $_SESSION['user_type'] = $row['user_type'];
+                $_SESSION['user_level'] = $row['user_level'];
                 $_SESSION['username'] = $row['username'];
                 return true;
             } else {

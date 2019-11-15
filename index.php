@@ -23,10 +23,11 @@
     } elseif(isset($_POST['user_type']) && $_POST['user_type'] === 'user') {
 
            if(isset($_POST['login'])) {
-            $username = $_POST['username'];
-            $password = $_POST['password'];
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+                $login_stud = $login->student_login($username,$password);
 
-            if($login->student_login($username,$password)) {
+            if($login_stud) {
                 header("location: dashboard.php");
             } elseif(Validation::val_empty($username) && Validation::val_empty($password)) {
                 $validation->error_msg = 'Username and Password should not be empty';
@@ -71,7 +72,7 @@
                                                 <option value="librarian" <?= $_POST['user_type'] == 'librarian' ? 'selected' : '' ?>>Librarian</option>
                                             <?php else: ?>    
                                                 <option value="user">User</option>
-                                                <option value="librarian">librarian</option>
+                                                <option value="librarian">Librarian</option>
                                             <?php endif; ?>
                                         </select>
                                     </div>
