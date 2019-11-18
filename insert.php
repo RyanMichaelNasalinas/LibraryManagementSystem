@@ -19,7 +19,13 @@
         $insert_query = $crud->insertData($firstname,$lastname,$gender,$username,$password,$email,$contact_num,$semester,$enrollment_num,$student_status,$user_level);
     
         if($insert_query) {
-            $output .= "<label class='text-success'>Data Inserted</label>";
+            $output .= '<div class="alert alert-success text-center alert-dismissible fade show mt-2" role="alert">
+                                Data Inserted
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>';
+
             $select_query = $crud->displayData("student");
             $output .= '<table class="table table-bordered text-center">
                     <thead>

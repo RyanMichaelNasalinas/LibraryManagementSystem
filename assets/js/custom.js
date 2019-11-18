@@ -70,20 +70,6 @@ $(document).ready(function() {
     });
 
 
-    //View data from the modal form
-    // $('.view_data').click(function () {
-    //     var employee_id = $(this).attr('id');
-    //     $.ajax({
-    //         url: "select.php",
-    //         method: "POST",
-    //         data: { employee_id: employee_id },
-    //         success: function (data) {
-    //             $('#employee_detail').html(data),
-    //                 $('#dataModal').modal('show');
-    //         }
-    //     });
-    // });
-
     $("#menu-toggle").click(function (e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
