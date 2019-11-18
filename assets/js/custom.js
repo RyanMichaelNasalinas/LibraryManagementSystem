@@ -1,17 +1,4 @@
 $(document).ready(function() {
-    //View data from the modal form
-    $('.view_data').click(function(){
-        var employee_id = $(this).attr('id');
-        $.ajax({
-            url:"select.php",
-            method: "post",
-            data:{employee_id:employee_id},
-            success:function(data) {
-                $('#employee_detail').html(data),
-                $('#dataModal').modal('show');
-            }
-        });
-    });
 
     //Insert data from modal form
     $('#insert_form').on("submit", function(e) {
@@ -68,6 +55,34 @@ $(document).ready(function() {
 
     });
     //End Insert data from modal form
+
+    $(document).on('click','.view_data', function(){
+        var employee_id = $(this).attr('id');
+        $.ajax({
+            url: "select.php",
+            method: "POST",
+            data: {employee_id:employee_id},
+            success: function(data) {
+                $('#employee_detail').html(data),
+                    $('#dataModal').modal('show');
+            }
+        });
+    });
+
+
+    //View data from the modal form
+    // $('.view_data').click(function () {
+    //     var employee_id = $(this).attr('id');
+    //     $.ajax({
+    //         url: "select.php",
+    //         method: "POST",
+    //         data: { employee_id: employee_id },
+    //         success: function (data) {
+    //             $('#employee_detail').html(data),
+    //                 $('#dataModal').modal('show');
+    //         }
+    //     });
+    // });
 
     $("#menu-toggle").click(function (e) {
         e.preventDefault();

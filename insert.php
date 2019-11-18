@@ -36,7 +36,7 @@
                         <tr>
                             <td>' . $row["firstname"] . '</td>
                             <td>' . $row["lastname"] . '</td>
-                            <td><input type="button" value="View" name="view" class="btn btn-info view_data" id="' . $row["id"] .'"></td>
+                            <td><input type="button" value="View" name="view" class="btn btn-info view_data" id='. $row['id'] .'></td>
                             <td><a href="#" class="btn btn-success">Edit</a></td>
                             <td><a href="#" class="btn btn-danger">Delete</a></td>
                         </tr>
