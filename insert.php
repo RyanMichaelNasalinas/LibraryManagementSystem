@@ -1,5 +1,4 @@
 <?php 
-
     include 'init/init.php';
 
     if(!empty($_POST)) {
@@ -36,7 +35,6 @@
                         </tr>
                     </thead>';
        
-
         foreach($select_query as $row) {
             $output .= ' <tbody>
                         <tr>
@@ -46,12 +44,10 @@
                             <td><a href="#" class="btn btn-success">Edit</a></td>
                             <td><a href="#" class="btn btn-danger">Delete</a></td>
                         </tr>
-                         </tbody>
-            ';
+                         </tbody>';   
         }  
         $output .= '</table>'; 
     }
     echo $output;
 }
-
 ?>
