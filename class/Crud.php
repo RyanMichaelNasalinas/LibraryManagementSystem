@@ -2,6 +2,7 @@
 
 class Crud extends Database {
 
+    //Dispaly all user data
     public function displayData($dbname) {
         $query = "SELECT * FROM ". $dbname;
 
@@ -13,7 +14,7 @@ class Crud extends Database {
 
         return $result;
     }
-
+    //Data data by id
     public function displayDataID(string $dbname,int $id) {
         $stmt = $this->connection->prepare("SELECT * FROM ". $dbname ." WHERE id = ? ");
         $stmt->bind_param("i",$id);

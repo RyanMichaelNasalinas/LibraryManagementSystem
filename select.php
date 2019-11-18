@@ -8,7 +8,7 @@
         $output .= '
             <div class="table-responsive text-center">
                 <table class="table table-bordered">';
-
+                
             foreach($query as $row) {
             $output .= 
             '
