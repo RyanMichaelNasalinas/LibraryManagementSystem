@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2019 at 12:53 AM
+-- Generation Time: Nov 19, 2019 at 12:46 AM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.1.29
 
@@ -25,10 +25,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `book_isssue`
+-- Table structure for table `books_isssued`
 --
 
-CREATE TABLE `book_isssue` (
+CREATE TABLE `books_isssued` (
   `id` int(11) NOT NULL,
   `std_enrollment_num` int(11) NOT NULL,
   `std_num` varchar(256) NOT NULL,
@@ -43,10 +43,10 @@ CREATE TABLE `book_isssue` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `book_list`
+-- Table structure for table `books_lists`
 --
 
-CREATE TABLE `book_list` (
+CREATE TABLE `books_lists` (
   `id` int(11) NOT NULL,
   `book_name` varchar(256) NOT NULL,
   `book_authorname` varchar(256) NOT NULL,
@@ -108,22 +108,29 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`id`, `firstname`, `lastname`, `gender`, `username`, `password`, `email`, `contact`, `sem`, `enrollment_num`, `std_status`, `user_level`) VALUES
-(1, 'Admin', 'Admin', 'Male', 'Admin', '$2y$10$i8JMyEUhc724IlZAi9FSLu1A1ddxZuDjEMOvATJoWBxAJ1bvxmEPi', 'Admin@yahoo.com', '09123456789', 1, 1, 'active', 2);
+(1, 'Admin', 'Admin', 'Male', 'Admin', '$2y$10$i8JMyEUhc724IlZAi9FSLu1A1ddxZuDjEMOvATJoWBxAJ1bvxmEPi', 'Admin@yahoo.com', '09123456789', 1, 1, 'active', 2),
+(2, 'Ryan', 'Michaels', 'Male', 'MikeManticore', 'admin', 'MikeManticore@gmail.com', '09123456789', 2, 2, 'active', 1),
+(27, 'asd', 'asd', '', '', '$2y$10$i499L/nL1bkoP9dcS7NrKu/uMEHpkJtFNE7afjJ69ajOZPvHGkrQm', '', '0', 0, 0, '', 0),
+(28, 'asd', 'asd', '', '', '$2y$10$6UkLtR/YQ01DmyfK5UdLauXs1sGhVxEe9EZl0/xcrL1Pe5RtWQO1u', '', '0', 0, 0, '', 0),
+(29, 'asd', 'sasd', '', '', '$2y$10$GCatt2NX4gvL1UA1eKiTFOknYDVGvwIcWohMc6vSnd7iaaWoNwARS', '', '0', 0, 0, '', 0),
+(30, 'asd', 'asd', '', '', '$2y$10$e4KYQ6BeJgmZlm0a38URFO7U8Rvnb.GBTlytWyT2OaEH8VummKqQu', '', '0', 0, 0, '', 0),
+(31, 'lkkl', 'lkkl', '', '', '$2y$10$zC6/c.6XIGXgOj6ev/YEOOkCKOL4Qrf2DsLXD.fZfBb1Kth73A2/O', '', '0', 0, 0, '', 0),
+(32, 'qweweqew', 'qwewqeewq', '', '', '$2y$10$q5SwcpFcoCv8AVzP3vccSOaKPIpT5SocuJ4ZjA8H6cwnEK1ZATEVi', '', '0', 0, 0, '', 0);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `book_isssue`
+-- Indexes for table `books_isssued`
 --
-ALTER TABLE `book_isssue`
+ALTER TABLE `books_isssued`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `book_list`
+-- Indexes for table `books_lists`
 --
-ALTER TABLE `book_list`
+ALTER TABLE `books_lists`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -143,15 +150,15 @@ ALTER TABLE `student`
 --
 
 --
--- AUTO_INCREMENT for table `book_isssue`
+-- AUTO_INCREMENT for table `books_isssued`
 --
-ALTER TABLE `book_isssue`
+ALTER TABLE `books_isssued`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `book_list`
+-- AUTO_INCREMENT for table `books_lists`
 --
-ALTER TABLE `book_list`
+ALTER TABLE `books_lists`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -164,7 +171,7 @@ ALTER TABLE `librarian`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
