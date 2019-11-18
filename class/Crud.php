@@ -13,9 +13,19 @@ class Crud extends Database {
 
         return $result;
     }
+
+    public function displayDataID(string $dbname,int $id) {
+        $stmt = $this->connection->prepare("SELECT * FROM ". $dbname ." WHERE id = ? ");
+        $stmt->bind_param("i",$id);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        if($result === false) {  
+            return false;
+        } 
+        
+        return $result;
+    }
 }
-
-
-
 
 ?>
