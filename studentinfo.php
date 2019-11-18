@@ -15,9 +15,7 @@
                         <button type="button" name="age" id="age" data-toggle="modal" data-target="#addDataModal" class="btn btn-warning">Add</button>
                     </div>
                 
-            <div class="table-responsive">
-              
-
+            <div class="table-responsive" id="student_table">
                 <table class="table table-bordered text-center">
                     <thead>
                         <tr>

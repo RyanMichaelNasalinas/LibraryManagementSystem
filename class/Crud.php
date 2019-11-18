@@ -4,7 +4,7 @@ class Crud extends Database {
 
     //Dispaly all user data
     public function displayData($dbname) {
-        $query = "SELECT * FROM ". $dbname;
+        $query = "SELECT * FROM ". $dbname . " ORDER BY id DESC";
 
         $result = $this->connection->query($query);
 
@@ -26,6 +26,18 @@ class Crud extends Database {
         } 
         
         return $result;
+    }
+    //Insert data into the database
+    public function insertData($firstname,$lastname,$gender,$username,$password,$email,$contact_num,$semester,$enrollment_num,$student_status,$user_level) {
+        $stmt = $this->connection->prepare("INSERT into student (`firstname`,`lastname`,`gender`,`username`,`password`,`email`,`contact`,`sem`,`enrollment_num`,`std_status`,`user_level`)
+        VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+        $stmt->bind_param("ssssssiiisi",$firstname,$lastname,$gender,$username,$password,$email,$contact_num,$semester,$enrollment_num,$student_status,$user_level);
+        
+        if($stmt->execute()) {
+            return true;    
+        } else {
+            return false;
+        }
     }
 }
 

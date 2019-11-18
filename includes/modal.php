@@ -86,8 +86,8 @@
                     </select>
                 </div>
                     <div class="form-group">
-                    <label>Student Status</label>
-                    <select name="user_level" id="student_status" class="form-control">
+                    <label>User Level</label>
+                    <select name="user_level" id="user_level" class="form-control">
                             <option value="">Select Userlevel</option>
                             <option value="1">Administrator</option>
                             <option value="2">User</option>
