@@ -81,8 +81,8 @@
                     <label>Student Status</label>
                     <select name="student_status" id="student_status" class="form-control">
                             <option value="">Select Status</option>
-                            <option value="active">Active</option>
-                            <option value="inactive">Inactive</option>
+                            <option value="active">active</option>
+                            <option value="inactive">inactive</option>
                     </select>
                 </div>
                     <div class="form-group">

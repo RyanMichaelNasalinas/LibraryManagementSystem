@@ -1,4 +1,35 @@
 $(document).ready(function() {
+    $("#add").click(function(){
+        $("#insert").val("Insert");
+        $("#insert_form")[0].reset();
+    });
+
+    //Fetch and edit data
+    $(document).on('click','.edit_data', function(){
+        var employee_id = $(this).attr("id");
+        $.ajax({
+            url: "fetch.php",
+            method: "POST",
+            data:{employee_id:employee_id},
+            dataType: "JSON",
+            success: function(data){ 
+                $('#firstname').val(data.firstname);
+                $('#lastname').val(data.lastname);
+                $('#gender').val(data.gender);
+                $('#username').val(data.username);
+                $('#password').val(data.password);
+                $('#email').val(data.email);
+                $('#contact_num').val(data.contact);
+                $('#semester').val(data.sem);
+                $('#enrollment_num').val(data.enrollment_num);
+                $('#student_status').val(data.std_status);
+                $('#user_level').val(data.user_level);
+                $('#insert').val('Update');
+                $('#addDataModal').modal('show');
+            }
+        });
+    });
+
 
     //Insert data from modal form
     $('#insert_form').on("submit", function(e) {

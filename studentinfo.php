@@ -12,7 +12,7 @@
             
                 <h1 class="mt-4 text-center">All Students Info</h1>
                     <div class="float-right mb-3 mr-3">
-                        <button type="button" name="age" id="age" data-toggle="modal" data-target="#addDataModal" class="btn btn-warning">Add</button>
+                        <button type="button" name="age" id="add" data-toggle="modal" data-target="#addDataModal" class="btn btn-warning">Add</button>
                     </div>
                 
             <div class="table-responsive" id="student_table">
@@ -32,9 +32,9 @@
                         <tr>
                             <td><?= $row['firstname']; ?></td>
                             <td><?= $row['lastname']; ?></td>
-                            <td><input type="button" value="View" name="view" class="btn btn-info view_data" id="<?= $row['id']; ?>"></td>
-                            <td><a href="#" class="btn btn-success">Edit</a></td>
-                            <td><a href="#" class="btn btn-danger">Delete</a></td>
+                            <td><input type="button" value="View" name="view" class="btn btn-info btn-sm view_data" id="<?= $row['id']; ?>"></td>
+                            <td><input type="button" value="Edit" name="edit" class="btn btn-success btn-sm edit_data" id="<?= $row['id']; ?>"></td>
+                            <td><a href="#" class="btn btn-danger btn-sm">Delete</a></td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>
